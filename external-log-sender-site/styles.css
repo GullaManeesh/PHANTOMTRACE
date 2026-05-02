@@ -1,0 +1,154 @@
+:root {
+  --bg: #f4efe9;
+  --card: #ffffff;
+  --text: #2e1d14;
+  --muted: #6f5a4f;
+  --border: #e3d5ca;
+  --accent: #d0602a;
+  --accent-hover: #b74c1c;
+  --ok: #126f3a;
+  --err: #9f1d1d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, #fff8f1 0, transparent 30%),
+    radial-gradient(circle at 80% 90%, #f9e4d3 0, transparent 35%),
+    var(--bg);
+}
+
+.shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 26px rgba(65, 36, 19, 0.08);
+}
+
+h1 {
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 8px 0 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  color: var(--text);
+  background: #fffaf5;
+}
+
+textarea {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  background: #bda397;
+  cursor: not-allowed;
+}
+
+.thread {
+  margin: 10px 0 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.error {
+  min-height: 20px;
+  color: var(--err);
+  font-weight: 600;
+  margin: 2px 0 10px;
+}
+
+.result {
+  border: 1px solid #b7e8c9;
+  background: #edfff4;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.result h2 {
+  margin: 0 0 8px;
+  color: var(--ok);
+}
+
+.result h3 {
+  margin: 10px 0 6px;
+  font-size: 14px;
+}
+
+pre {
+  margin: 0;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #d8efe2;
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 740px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    padding: 14px;
+  }
+}

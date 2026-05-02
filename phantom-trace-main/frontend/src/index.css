@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #FAF7F2;
+  color: #1C1410;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #FAF7F2; }
+::-webkit-scrollbar-thumb { background: #EDE8E0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #D4C9BB; }
+
+/* Card utility */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #EDE8E0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(28,20,16,0.06);
+}
+
+/* Severity border utilities */
+.border-critical { border-left: 4px solid #DC2626; }
+.border-high      { border-left: 4px solid #EA580C; }
+.border-medium    { border-left: 4px solid #D97706; }
+.border-low       { border-left: 4px solid #0D9488; }
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, #EDE8E0 25%, #FAF7F2 50%, #EDE8E0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

@@ -1,0 +1,7 @@
+# Frontend-local ignores.
+# Shared/editor/OS/env rules are defined at repo root in ../.gitignore.
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local

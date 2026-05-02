@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhantomTrace External Log Sender</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <h1>External Log Sender Demo</h1>
+        <p class="subtitle">
+          Standalone customer website sample that sends one security log to PhantomTrace and triggers orchestrator analysis.
+        </p>
+
+        <div class="grid">
+          <label>
+            API Base URL
+            <input id="apiBaseUrl" type="text" value="http://localhost:8000" />
+          </label>
+
+          <label>
+            API Key (optional when DEMO_NO_AUTH=1)
+            <input id="apiKey" type="text" placeholder="pt_live_xxx" />
+          </label>
+
+          <label>
+            Thread ID
+            <input id="threadId" type="text" value="external-chain-test-1" />
+          </label>
+
+          <label>
+            Log Source
+            <input id="logSource" type="text" value="customer_pipeline" />
+          </label>
+
+          <label>
+            Log Type
+            <select id="logType">
+              <option value="network">network</option>
+              <option value="auth" selected>auth</option>
+              <option value="behavioral">behavioral</option>
+              <option value="process">process</option>
+              <option value="dns">dns</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Single Log Payload (JSON)
+          <textarea id="payload" rows="12"></textarea>
+        </label>
+
+        <button id="sendBtn" type="button">Send Log</button>
+
+        <p id="threadLine" class="thread"></p>
+        <p id="error" class="error"></p>
+
+        <section id="result" class="result hidden">
+          <h2>Request Result</h2>
+          <h3>Ingest Response</h3>
+          <pre id="ingestResult"></pre>
+          <h3>Orchestrator Response</h3>
+          <pre id="orchestratorResult"></pre>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

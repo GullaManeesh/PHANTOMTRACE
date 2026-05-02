@@ -1,0 +1,338 @@
+# ==============================================================================
+# COMPREHENSIVE GITIGNORE FOR PHANTOMTRACE PROJECT
+# ==============================================================================
+# This file prevents accidental commits of sensitive data, dependencies, and 
+# build artifacts. Review before initial commit to GitHub.
+# ==============================================================================
+
+# ==============================================================================
+# SECURITY: Never commit secrets, credentials, API keys, or local configs
+# ==============================================================================
+
+# Environment files with credentials (local development)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API keys and secrets
+*.key
+*.pem
+*.p8
+*.pfx
+*.pkcs12
+secrets/
+private/
+credentials.json
+config/credentials.*
+
+# Local config overrides (machine-specific settings)
+local.config.js
+local.settings.json
+
+# ==============================================================================
+# BACKEND: Python, virtual environments, caches
+# ==============================================================================
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Python testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+*.cover
+*,cover
+.hypothesis/
+
+# Linters and type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pylint
+
+# Virtual environments (CRITICAL: repo should use requirements.txt instead)
+venv/
+.venv/
+env/
+ENV/
+./venv/
+node_venv/
+.env_backup/
+
+# Python development
+pip-log.txt
+pip-delete-this-directory.txt
+.pyenv
+
+# Database files (SQLite development artifacts)
+*.sqlite3
+*.db
+*.sqlite
+backend/agent_results_cache.sqlite3
+backend/agent_results_cache*.db
+backend/*.sqlite3
+backend/*.db
+
+# ==============================================================================
+# FRONTEND: Node.js, npm/pnpm, build outputs
+# ==============================================================================
+
+# Dependencies (use lock files instead in git)
+node_modules/
+npm-debug.log*
+npm-error.log*
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+frontend/build/
+frontend/.next/
+frontend/out/
+*.local
+
+# Node development
+.tern-port
+.tool-versions
+
+# ==============================================================================
+# IDE AND EDITOR FILES
+# ==============================================================================
+
+# VS Code
+.vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+.idea/workspace.xml
+.idea/modules.xml
+.idea/runConfigurations/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+.swp
+.swo
+.swn
+*~
+.vim/
+Session.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
+.emacs.d/
+
+# Other editors
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+ehthumbs.db
+desktop.ini
+
+# ==============================================================================
+# OS-SPECIFIC FILES
+# ==============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.bundle
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.lnk
+
+# Linux
+.directory
+.Trash*
+
+# ==============================================================================
+# SYSTEM AND RUNTIME FILES
+# ==============================================================================
+
+# Logs
+*.log
+*.log.*
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+.tmp/
+.temp/
+
+# System locks and processes
+.lock
+*.pid
+*.seed
+*.pid.lock
+
+# ==============================================================================
+# BUILD AND DISTRIBUTION ARTIFACTS
+# ==============================================================================
+
+# Python distributions
+dist/
+build/
+*.tar.gz
+*.zip
+wheels/
+pip-wheel-metadata/
+
+# Node build
+.next/
+.nuxt/
+dist/
+build/
+
+# Docker
+docker-compose.override.yml
+Dockerfile.local
+
+# CI/CD
+.github/workflows/local.yml
+.gitlab-ci.local.yml
+
+# ==============================================================================
+# BACKEND-SPECIFIC EXCLUSIONS
+# ==============================================================================
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# FastAPI/uvicorn
+*.asgi
+*.wsgi
+
+# Database connections string cache
+db/.env
+db/connection.ini
+
+# Task queues (if used)
+celerybeat-schedule
+celerybeat.pid
+
+# ==============================================================================
+# FRONTEND-SPECIFIC EXCLUSIONS
+# ==============================================================================
+
+# Vite cache
+.vite/
+
+# Build metadata
+.parcel-cache
+.cache/
+.eslintcache
+
+# JSDoc
+docs/generated/
+
+# ==============================================================================
+# PROTECTED PATTERNS: NEVER COMMIT THESE
+# ==============================================================================
+
+# Explicitly protect credential-like patterns even if they slip through above
+*.secret
+*.password
+*.token
+*_secret*
+*_password*
+*_token*
+*_key*
+*credentials*
+*auth.json
+*config.prod.js
+
+# MongoDB connection strings
+mongo_credentials.txt
+mongodb_uri.txt
+
+# AWS/Cloud credentials
+aws_credentials
+.aws/credentials
+.aws/config
+gcp_credentials.json
+azure_secrets.json
+
+# ==============================================================================
+# EXCEPTIONS: Files that SHOULD be committed (prefixed with !)
+# ==============================================================================
+
+# Important template files
+!.env.example
+!.env.local.example
+!.env.development.example
+
+# Documentation and config templates
+!.gitkeep
+!README.md
+!LICENSE
+
+# ==============================================================================
+# PROJECT-SPECIFIC INCLUSIONS (if needed, uncomment)
+# ==============================================================================
+
+# Keep certain build outputs or vendor libraries if required:
+# !vendor/
+# !public/uploads/
+# !static/
+
+# ==============================================================================
+# BEFORE PUSHING TO GITHUB
+# ==============================================================================
+# 1. Run: git status (verify only intended files appear)
+# 2. Run: git log --name-status HEAD~5..HEAD (check recent commits)
+# 3. Scan: grep -r "GOOGLE_API_KEY\|VIRUSTOTAL_API_KEY\|password\|secret" --include="*.py" --include="*.js"
+# 4. If secrets found in history: use git-filter-branch or BFG Repo-Cleaner
+# 5. Verify no .env, .env.local, or config files with keys are staged
+# ==============================================================================
